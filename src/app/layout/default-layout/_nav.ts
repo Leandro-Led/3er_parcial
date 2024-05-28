@@ -10,10 +10,34 @@ export const navItems: INavData[] = [
       text: 'NEW'
     }
   },
+  ///*----------------Pelicula Inicio-------------------------- */
+  {
+    title: true,
+    name: 'Indice de Cartelera'
+  },
+  {
+    name: 'Cartelera',
+    url: '/cartelera',
+    iconComponent: { name: 'cil-puzzle' },
+    children: [
+      {
+        name: 'Pelicula',
+        url: '/cartelera/pelicula',
+        icon: 'nav-icon-bullet'
+      },
+      {
+        name: 'Reportes',
+        url: '/cartelera/reportes',
+        icon: 'nav-icon-bullet'
+      },
+    ]
+  },
+  ///*----------------Pelicula Final-------------------------- */
   {
     title: true,
     name: 'Theme'
   },
+ 
   {
     name: 'Colors',
     url: '/theme/colors',

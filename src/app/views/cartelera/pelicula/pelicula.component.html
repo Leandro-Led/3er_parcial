@@ -1,0 +1,121 @@
+<c-row ngPreserveWhitespaces>
+    <c-col xs="12">
+        <c-card class="mb-4">
+            <c-card-header>
+              <strong>Formulario de Peliculas</strong>
+            </c-card-header>
+            <c-card-body>
+              
+                <form cForm>
+                  <div class="mb-3">
+                    <label cLabel for="exampleFormControlInput1">Titulo</label>
+                    <input cFormControl
+                           id="titulo"
+                           placeholder="Ingrese Titulo"
+                           [(ngModel)]="peliculaModelo.titulo"
+                           type="text"
+                           name="titulo"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label cLabel for="exampleFormControlInput1">Director</label>
+                    <input cFormControl
+                           id="director"
+                           placeholder="Ingrese Director de Pelicula"
+                           [(ngModel)]="peliculaModelo.director"
+                           type="text"
+                           name="director"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label cLabel for="exampleFormControlInput1">Genero</label>
+                    <input cFormControl
+                           id="genero"
+                           placeholder="Ingrese Genero de Pelicula"
+                           [(ngModel)]="peliculaModelo.genero"
+                           type="text"
+                           name="genero"
+                    />
+                  </div>
+                  
+                  <div class="mb-3">
+                    <label cLabel for="exampleFormControlInput1">Duracion</label>
+                    <input cFormControl
+                           id="duracion"
+                           placeholder="Ingrese Duracion de la Pelicula"
+                           [(ngModel)]="peliculaModelo.duracion"
+                           type="number"
+                           name="duracion"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label cLabel for="exampleFormControlInput1">Clasificacion</label>
+                    <input cFormControl
+                           id="clasificacion"
+                           placeholder="Ingrese Clasificacion de la Pelicula"
+                           [(ngModel)]="peliculaModelo.clasificacion"
+                           type="text"
+                           name="clasificacion"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label cLabel for="exampleFormControlInput1">Fecha de Estreno</label>
+                    <input cFormControl
+                           id="fecha_estreno"
+                           [(ngModel)]="peliculaModelo.fecha_estreno"
+                           type="date"
+                           name="fecha_estreno"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label cLabel for="exampleFormControlInput1">Usuario</label>
+                    <input cFormControl
+                           id="usuario"
+                           [(ngModel)]="peliculaModelo.usuario"
+                           type="text"
+                           name="usuario"
+                    />
+                    <!--<select aria-label="Default select example" cSelect>
+                        <option>Seleccione Usuario</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select-->
+                  </div>
+                  <button (click)="crearPelicula()" cButton class="me-1" color="primary" type="submit">
+                    Guardar
+                  </button>
+                </form>
+              
+            </c-card-body>
+          </c-card>
+    </c-col>
+    <c-col xs="12">
+        <table cTable>
+            <thead cTableColor="dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Director</th>
+              <th scope="col">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+              @for(pelicula of listaPeliculas; track pelicula;){
+
+              
+                <tr>
+                  <th scope="row">1</th>
+                  <td>{{pelicula.titulo}}</td>
+                  <td>{{pelicula.director}}</td>
+                  <td>{{pelicula.genero}}</td>
+                  <td>{{pelicula.duracion}}</td>
+                  <td>{{pelicula.clasificacion}}</td>
+                  <td>{{pelicula.fecha_estreno}}</td>
+                  <td><button (click)="verPelicula(pelicula)" cButton color="warning" variant="outline">Editar</button> <button (click)="eliminarPelicula(pelicula)" cButton color="danger" variant="outline">Eliminar</button></td>
+                </tr>
+              }
+            </tbody>
+          </table>
+    </c-col>
+</c-row>
